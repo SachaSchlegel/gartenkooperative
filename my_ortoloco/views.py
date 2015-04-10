@@ -119,7 +119,6 @@ def my_job(request, job_id):
             loco_info["count"] = current_count + 1
             #current_msg.append("boehnli.comment")
             loco_info["msg"] = current_msg
-    print participants_new_dict
 
     participants_summary = []
     for loco_name, loco_dict in participants_new_dict.iteritems():

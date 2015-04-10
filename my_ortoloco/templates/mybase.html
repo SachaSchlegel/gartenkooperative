@@ -107,17 +107,17 @@
           <hr>
           <div class="bohnen">
             {% block bohnen %}
-            <h5>Dein Böhnli-Konto</h5>
-            {% for i in bohnenrange %}
-            {% if i < userbohnen_kernbereich %}
-                      <img alt="Kernbereich" title="Kernbereich" class="jobstatus" src="/static/img/erbse_voll_kernbereich.png"/>
-                      {% elif i < userbohnen_total %}
-                                  <img alt="anderer Tätigkeitsbereich" title="anderer Tätigkeitsbereich" class="jobstatus" src="/static/img/erbse_voll.png"/>
-				  {% else %}
-                                  <img alt="Leere Erbse" class="jobstatus" src="/static/img/erbse_leer.png"/>
-				  {% endif %}
-				  {% endfor %}
-				  {% endblock %}
+              <h5>Dein Böhnli-Konto</h5>
+              {% for i in bohnenrange %}
+                {% if i < userbohnen_kernbereich %}
+			<img alt="Kernbereich" title="Kernbereich" class="jobstatus" src="/static/img/erbse_voll_kernbereich.png"/>
+                {% elif i < userbohnen_total %}
+                        <img alt="anderer Tätigkeitsbereich" title="anderer Tätigkeitsbereich" class="jobstatus" src="/static/img/erbse_voll.png"/>
+                {% else %}
+                        <img alt="Leere Erbse" class="jobstatus" src="/static/img/erbse_leer.png"/>
+                {% endif %}
+	      {% endfor %}
+            {% endblock %}
           </div>
           <hr>
           <div class="jobs">
