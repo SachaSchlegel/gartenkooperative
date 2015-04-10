@@ -1,16 +1,19 @@
 {% extends "mybase.html" %}
 
 {% block allcontent %}
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-        <h3>Wähle dein Abo</h3>
-        <br/>
+<div class="col-md-2"></div>
+<div class="col-md-8">
+  <h3>Zweiter und letzter Schritt der Registration</h3>
+  <p>
+    Die Genossenschaftsanteilsscheine (à je CHF 250.--)werden nicht auf dieser Platfrom verwaltet. Die Betriebsgruppe kommt direkt auf auch zu.
+  </p>
 
-        <h5>Infos:</h5>
-
-        Um Mitglied der Genossenschaft 'Gartenkooperative Region Liechtenstein-Werdenberg' zu werden, musst du mindestens einen Anteilschein (CHF 250) erwerben.
-        <br/><br/>
-
+  <h4>Für alle AbonnentInnen</h4>
+  Wähle hier deine Abo Grösse aus.
+  <h4>Für alle Genossenschafter OHNE Abo</h4>
+  Wähle "kein Abo" aus :)
+  <br/><br/>
+  
         <form action="" method="post" class="form-horizontal createabo">
             {% csrf_token %}
             <div class="form-group">
@@ -22,7 +25,7 @@
                         <strong>Kleines Abo</strong>
 
                         <br/>
-                        Das kleine Abo ist für 2 bis 3 Personen geeignet und benötigt mindestens zwei Anteilscheine.
+                        Das kleine Abo ist für 2 bis 3 Personen geeignet (Info: benötigt mindestens zwei Anteilscheine).
                     </label>
                 </div>
             </div>
@@ -35,7 +38,7 @@
                         <strong>Grosses Abo</strong>
 
                         <br/>
-                        Das grosse Abo empfiehlt sich für WG's oder Familien (ca. 4 bis 6 Personen) und benötigt vier Anteilscheine.
+                        Das grosse Abo empfiehlt sich für WG's oder Familien also ca. 4 bis 6 Personen (Info: benötigt vier Anteilscheine)
                     </label>
                 </div>
             </div>
@@ -80,7 +83,6 @@
                     <label for="depot">
                         Wähle ein Depot aus, in welchem du wöchentlich das feine Gemüse abholen kannst.
                     </label>
-
 		    <!-- some google maps stuff to show distance of depot -->
 		    <!--
 			<div id="map-canvas"></div>
@@ -106,6 +108,7 @@
                 </div>
             </div>
 -->
+<!--
             <div class="form-group">
                 <label class="col-md-4 control-label">Anteilscheine</label>
 
@@ -120,10 +123,12 @@
                     {% endif %}
                 </div>
             </div>
-
+-->
             <div class="col-md-offset-4 form-actions">
                 <button type="submit" class="btn btn-success">Abo erstellen</button>
             </div>
+	    <br />
+	    <br />
         </form>
     </div>
 

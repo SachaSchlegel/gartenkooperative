@@ -1,20 +1,25 @@
 {% extends "mybase.html" %}
 
 {% block content %}
-    {% block message %} {% endblock %}
-    {% if no_abo %}
-        <br/><br/>
-        <div class="alert alert-warning">Du hast kein Abo</div>
-    {% endif %}
+{% block message %} {% endblock %}
+{% if no_abo %}
+<br/>
+<div class="alert alert-warning">Du hast kein Abo</div>
+{% endif %}
 
-    {% autoescape off %}
-        {{ announcement }}
-    {% endautoescape %}
-    <br/>
-    <h2>Neues aus der Gartenkooperative</h2>
-    <br />
-<p>Die OpenSource Software von Ortoloco wird auf unsere Zwecke umgeschrieben. Nach und nach stellen wir neue Features live.</p>
-<br />
+<!-- Announcements können in views.py erstellt werden -->
+{% autoescape off %}
+{{ announcement }}
+{% endautoescape %}
+
+<h2>Willkommen!</h2>
+<p>
+  Auf dieser Seite organisieren:
+  <ul>
+    <li>Die Arbeitseinsätze: Jede(r) AbonnementIn einer kleinen Gemüse-Tasche verpflichtet sich für 10 Arbeitseinsätze (das sind 10 mal 1/2 Tage à je 4 Stunden)</li>
+    <li>Die Abos und die Depots.</li>
+  </ul>
+</p>
 
     <h3>Aktuelle Arbeitseinsätze</h3>
     <table class="jobs">
@@ -28,7 +33,7 @@
     </table>
     <br/>
     <a href="/my/einsaetze">Hier alle Arbeitseinsätze anzeigen</a>
-    <br/><br/><br/>
+    <br/><br/>
     <h4>Zu den Kalendern der einzelnen Tätigkeitsbereiche</h4>
     <table class="teams">
         {% for team in teams %}
@@ -37,6 +42,8 @@
             </tr>
         {% endfor %}
     </table>
-
+    <br />
+    <br />
+    <br />
 
 {% endblock %}

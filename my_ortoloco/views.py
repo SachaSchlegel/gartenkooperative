@@ -601,13 +601,17 @@ def my_createabo(request):
     else:
         selectedabo = "house"
 
-    loco_scheine = 0
+    # Gartenkooperative benützt die Aboscheine dieser Software nicht. Also setzten wir es einfach auf riesig :)
+    # loco_scheine = 0
+    loco_scheine = 100
     if loco.abo is not None:
         for abo_loco in loco.abo.bezieher_locos().exclude(email=request.user.loco.email):
             loco_scheine += abo_loco.anteilschein_set.all().__len__()
 
     if request.method == "POST":
-        scheine = int(request.POST.get("scheine"))
+        # Gartenkooperative benützt die Aboscheine dieser Software nicht. Also setzten wir es einfach auf riesig :)
+        # scheine = int(request.POST.get("scheine"))
+        scheine = 100
         selectedabo = request.POST.get("abo")
 
         scheine += loco_scheine
@@ -631,11 +635,14 @@ def my_createabo(request):
             loco.abo.save()
             loco.save()
 
+            '''
+            # We dont care about anteilsscheine
             if loco.anteilschein_set.count() < int(request.POST.get("scheine")):
-                toadd = int(request.POST.get("scheine")) - loco.anteilschein_set.count()
+              toadd = int(request.POST.get("scheine")) - loco.anteilschein_set.count()
                 for num in range(0, toadd):
                     anteilschein = Anteilschein(loco=loco, paid=False)
                     anteilschein.save()
+            '''
 
             if request.POST.get("add_loco"):
                 return redirect("/my/abonnent/" + str(loco.abo_id))
