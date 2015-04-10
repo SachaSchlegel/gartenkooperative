@@ -521,6 +521,7 @@ def my_signup(request):
 
 
 @login_required
+@primary_loco_of_abo
 def my_add_loco(request, abo_id):
     scheineerror = False
     scheine = 1
@@ -530,12 +531,18 @@ def my_add_loco(request, abo_id):
         if User.objects.filter(email=request.POST.get('email')).__len__() > 0:
             userexists = True
         try:
-            scheine = int(request.POST.get("anteilscheine"))
+            # Gartenkooperative organisiert Scheine nicht hier.
+            # scheine = int(request.POST.get("anteilscheine"))
+            scheine = 100
             scheineerror = scheine < 0
         except TypeError:
-            scheineerror = True
+            # Gartenkooperative organisiert Scheine nicht hier.
+            # scheineerror = True
+            scheineerror = False
         except  ValueError:
-            scheineerror = True
+            # Gartenkooperative organisiert Scheine nicht hier.
+            # scheineerror = True
+            scheineerror = False
         if locoform.is_valid() and scheineerror is False and userexists is False:
             username = make_username(locoform.cleaned_data['first_name'],
                                      locoform.cleaned_data['last_name'],
@@ -557,9 +564,11 @@ def my_add_loco(request, abo_id):
             loco.user.set_password(pw)
             loco.user.save()
 
+            '''
             for num in range(0, scheine):
                 anteilschein = Anteilschein(loco=loco, paid=False)
                 anteilschein.save()
+            '''
 
             send_been_added_to_abo(loco.email, pw, loco.get_name(), scheine, hashlib.sha1(locoform.cleaned_data['email'] + str(abo_id)).hexdigest(), request.META["HTTP_HOST"])
 

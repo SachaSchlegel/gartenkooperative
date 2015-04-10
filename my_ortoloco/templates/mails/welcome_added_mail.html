@@ -1,16 +1,16 @@
 {% extends "mails/email.html" %}
 {% block content %}
-    Wir freuen uns, dich bei ortoloco begrüssen zu dürfen. Soeben hat dich '{{ name }}' zu ihrem/seinem Gemüsebo hinzugefügt und für dich {{ anteilsscheine }} Anteilschein(e) erworben. Wenn du damit einverstanden bist, ortoloco-GenossenschafterIn zu werden und <a target="_blank" href="{{ serverurl }}/static/others/131129_Statuten_ortoloco.pdf">die Statuten</a> und <a target="_blank" href="{{ serverurl }}/static/others/131129_Betriebsreglement_ortoloco.pdf">das Betriebsreglement</a> gelesen hast, dann klicke bitte <a href="{{ serverurl }}/my/bestaetigung/{{ hash }}">hier zur Bestätigung</a>.
+    Wir freuen uns, dich bei der Gartenkooperative begrüssen zu dürfen. Soeben hat dich '{{ name }}' zu ihrem/seinem Gemüsebo hinzugefügt.Wenn du damit einverstanden bist, und <a target="_blank" href="https://www.dropbox.com/s/5zwicvr0b2w1qir/150226StatutenGartenkooperative.pdf?dl=0">die Statuten</a> und <a target="_blank" href="https://www.dropbox.com/s/j7wd2ylx54jn965/150226BetriebsreglementGartenkooperative.pdf?dl=0">das Betriebsreglement</a> gelesen hast, dann klicke bitte <a href="{{ serverurl }}/my/bestaetigung/{{ hash }}">hier zur Bestätigung</a>.
 
     <br/><br/>
-    Unter <a href="http://my.ortoloco.ch">my.ortoloco.ch</a> kannst du dich ab sofort für Arbeitseinsätze anmelden und vieles mehr.
+    Unter <a href="http://meine.gartenkooperative.li">meine.gartenkooperative.li</a> kannst du dich ab sofort für Arbeitseinsätze anmelden und vieles mehr.
     <br/><br/>
     Email: {{ username }}<br/>
     Passwort: {{ password }} (bitte setze dir <a href="{{ serverurl }}/my/passwort">hier</a> gleich ein neues Passwort)
     <br/><br/>
-    Weitere Infos wirst du bald erhalten. Bei Fragen oder Unklarheiten einfach melden: <br/>
-    <a href="mailto:info@ortoloco.ch">info@ortoloco.ch</a>
+    Weitere Infos wirst du bald erhalten. Bei Fragen oder Unklarheiten einfach melden: <br/>
+    <a href="mailto:kontakt@gartenkooperative.li">kontakt@gartenkooperative.li</a>
     <br/><br/>
-    Herzlich grüsst,<br/>
-    die ortoloco-Betriebsgruppe
+    Herzlich grüsst,<br/>
+    die Gartenkooperative-Betriebsgruppe
 {% endblock %}

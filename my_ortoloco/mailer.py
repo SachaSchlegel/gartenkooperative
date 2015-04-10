@@ -26,7 +26,7 @@ def send_mail(subject, message, from_email, to_emails):
     if len(okmails) > 0:
         for amail in okmails:
             mail.send_mail(subject, message, from_email, [amail], fail_silently=False)
-        print "Mail sent to " + ", ".join(okmails) + (", on whitelist" if settings.DEBUG else "")
+            print "Mail sent to " + ", ".join(okmails) + (", on whitelist" if settings.DEBUG else "")
 
     return None
 

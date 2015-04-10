@@ -1,22 +1,23 @@
 {% extends "mails/email.txt" %}
 {% block content %}
-Wir freuen uns, dich bei ortoloco begrüssen zu dürfen. Soeben hat dich '{{name}}' zu ihrem/seinem Gemüsebo hinzugefügt und für dich {{ anteilsscheine }} Anteilschein(e) erworben. Wenn du damit einverstanden bist, ortoloco-GenossenschafterIn zu werden und die Statuten und das Betriebsreglement gelesen hast, dann klicke bitte auf den Bestätigungslink:
+Wir freuen uns, dich bei der Gartenkooperative begrüssen zu dürfen. Soeben hat dich '{{name}}' zu ihrem/seinem Gemüsebo hinzugefügt. Wenn du damit einverstanden bist, die Statuten und das Betriebsreglement gelesen hast, dann klicke bitte auf den Bestätigungslink.
+
 Bestätigungslink: {{ serverurl }}/my/bestaetigung/{{ hash }}
 
-Statuten: {{ serverurl }}/static/others/131129_Statuten_ortoloco.pdf
-Betriebsreglement: {{ serverurl }}/static/others/131129_Betriebsreglement_ortoloco.pdf
+Statuten: https://www.dropbox.com/s/5zwicvr0b2w1qir/150226StatutenGartenkooperative.pdf?dl=0
+Betriebsreglement: https://www.dropbox.com/s/j7wd2ylx54jn965/150226BetriebsreglementGartenkooperative.pdf?dl=0
 
 
-Unter my.ortoloco.ch kannst du dich ab sofort für Jobs anmelden und vieles mehr.
+Unter meine.gartenkooperative.li kannst du dich ab sofort für Jobs anmelden und vieles mehr.
 
 Email: {{ username }}
 Passwort: {{ password }}
 Bitte setze dir hier gleich ein neues Passwort:
 {{serverurl}}/my/passwort
 
-Weitere Infos wirst du bald erhalten. Bei Fragen oder Unklarheiten einfach melden:
-info@ortoloco.ch
+Weitere Infos wirst du bald erhalten. Bei Fragen oder Unklarheiten einfach melden:
+kontakt@gartenkooperative.li
 
 Herzlich grüsst,
-die ortoloco-Betriebsgruppe
+die Gartenkooperative-Betriebsgruppe
 {% endblock %}

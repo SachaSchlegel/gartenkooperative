@@ -12,7 +12,7 @@
   </dd>
   <dt>&nbsp;</dt>
   <dd>&nbsp;</dd>
-  <dt>Status</dt>
+  <dt>Abo Status</dt>
   <dd>
     {% if loco.abo.active %}
     Dein Abo ist aktiv, du erhälst wöchentlich dein Gemüse.
@@ -56,9 +56,11 @@
     <br/>
     {% endif %}
     {% else %}
-    Du hast noch keine MitabonnentInnen eingetragen.<br/>
+    Du hast keine MitabonnentInnen eingetragen.<br/>
     {% endif %}
+    {% if primary %}
     <a href="/my/abonnent/{{ loco.abo.id }}?return=/my/abo">Hier MitabonnentInnen eintragen</a>
+    {% endif %}
   </dd>
   <dt>&nbsp;</dt>
   <dd>&nbsp;</dd>

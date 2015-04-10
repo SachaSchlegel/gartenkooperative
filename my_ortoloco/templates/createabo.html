@@ -89,25 +89,22 @@
 			-->
                 </div>
             </div>
-<!--
             <div class="form-group">
-                <label class="col-md-4 control-label">MitabonnentInnen</label>
-
-                <div class="col-md-8 controls">
-                    {% if 0 == mit_locos|length %}
-                        <div>Bisher hast du keine MitabonnentInnen eingetragen.</div>
-                    {% else %}
-                        <ul>
-                            {% for loco in mit_locos %}
-                                <li>{{ loco.first_name }} {{ loco.last_name }} - {{ loco.anteilschein_set.all|length }} Anteilschein(e)</li>
-                            {% endfor %}
-                        </ul>
-                    {% endif %}
-                    <button class="btn btn-small" id="add-loco">Weitere MitabonnentIn hinzufügen</button>
-                    <br/><br/>
-                </div>
+              <label class="col-md-4 control-label">MitabonnentInnen (jemand beteiligt sich an  deinem Abo)</label>
+              <div class="col-md-8 controls">
+                {% if 0 == mit_locos|length %}
+                <div>Bisher hast du keine MitabonnentInnen eingetragen.</div>
+                {% else %}
+                <ul>
+                  {% for loco in mit_locos %}
+                  <li>{{ loco.first_name }} {{ loco.last_name }} - {{ loco.anteilschein_set.all|length }} Anteilschein(e)</li>
+                  {% endfor %}
+                </ul>
+                {% endif %}
+                <button class="btn btn-small" id="add-loco">Weitere MitabonnentIn hinzufügen</button>
+                <br/><br/>
+              </div>
             </div>
--->
 <!--
             <div class="form-group">
                 <label class="col-md-4 control-label">Anteilscheine</label>
