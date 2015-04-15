@@ -38,10 +38,11 @@
 	<div class="col-md-3">
           <ul class="nav nav-pills nav-stacked main-menu">
             <li class="{{ menu.abonnement }}">
-              <strong>Angemeldet als:</strong> <br />
+              <h5>Angemeldet als</h5>
 	      {{ user.loco.first_name }} {{ user.loco.last_name }}
             </li>
             <hr>
+	    <h5>Meine Gartenkooperative</h5>
             <li class="{{ menu.abonnement }}">
               <a href="/my/home">Home</a>
             </li>
@@ -57,9 +58,18 @@
             <li class="{{ menu.contact }}">
               <a href="/my/kontakt">Kontakt</a>
             </li>
+            <li class="{{ menu.personalInfo }}">
+              <a href="/my/profil">Personalien</a>
+            </li>
+            <li class="{{ menu.logout }}">
+              <a href="/logout"><strong>Abmelden</strong></a>
+            </li>
+	    <li>
+	      <a href="mailto:it@gartenkooperative.li?subject=Informatik Frage/Kommentar">Fragen? Emaile uns</a>
+	    </li>
 	    {% if depot_admin|length > 0 %}
 	    <hr>
-	    <p><strong>Depot Admin</strong></p>
+	    <h5>Für Depot Admins</h5>
 	    <li>
 	      <a href="/my/mails_depot">Mails verschicken</a>
 	    </li>
@@ -69,7 +79,7 @@
             {% endif %}
             {% if staff_user %}
 	    <hr>
-	    <p><strong>Admin Benützer</strong></p>
+	    <h5>Für Admins</h5>
             <li class="{{ menu.abonnement }}">
               <a target="_new" href="/admin">Administrator</a>
             </li>
@@ -96,21 +106,12 @@
             </li>
             {% endif %}
 -->
-            <li class="{{ menu.personalInfo }}">
-              <hr>
-              <a href="/my/profil">Personalien</a>
-            </li>
-            <li class="{{ menu.logout }}">
-              <a href="/logout">Abmelden</a>
-            </li>
-	    <li>
-	      <a href="mailto:it@gartenkooperative.li?subject=Informatik Frage/Kommentar">Fragen? Emaile uns</a>
-	    </li>
           </ul>
           <hr>
           <div class="bohnen">
             {% block bohnen %}
-              <h5>Dein Böhnli-Konto</h5>
+            <h5>Dein Böhnli-Konto</h5>
+	    Deine absolvierten Einsätze (pro Einsatz ein Böhnli).<br/>
               {% for i in bohnenrange %}
                 {% if i < userbohnen_kernbereich %}
 			<img alt="Kernbereich" title="Kernbereich" class="jobstatus" src="/static/img/erbse_voll_kernbereich.png"/>
