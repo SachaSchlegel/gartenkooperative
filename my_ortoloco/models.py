@@ -1,5 +1,6 @@
 # encoding: utf-8
 
+from datetime import date
 import datetime
 from django.db import models
 from django.contrib.auth.models import User
@@ -278,7 +279,6 @@ class Loco(models.Model):
             return self.mobile_phone
         return self.phone
 
-
 class Anteilschein(models.Model):
     loco = models.ForeignKey(Loco, null=True, blank=True, on_delete=models.SET_NULL)
     paid = models.BooleanField(default=False)
@@ -370,7 +370,6 @@ class Job(models.Model):
         verbose_name = 'Job'
         verbose_name_plural = 'Jobs'
 
-
 class Boehnli(models.Model):
     """
     Single boehnli (work unit).
@@ -386,6 +385,9 @@ class Boehnli(models.Model):
 
     def is_in_kernbereich(self):
         return self.job.typ.bereich.core
+
+    def is_boehnli_done(self):
+        return self.job.time.year == date.today().year and self.job.time < datetime.datetime.now()
 
     class Meta:
         verbose_name = 'Böhnli'

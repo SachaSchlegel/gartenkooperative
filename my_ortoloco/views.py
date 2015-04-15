@@ -39,7 +39,7 @@ def get_menu_dict(request):
         userbohnen = []
 
         for bohne in allebohnen:
-            if bohne.job.time.year == date.today().year and bohne.job.time < datetime.datetime.now():
+            if bohne.is_boehnli_done():
                 userbohnen.append(bohne)
 
         # amount of beans shown => round up if needed never down

@@ -165,7 +165,7 @@ class BoehnliInline(admin.TabularInline):
 
 
 class JobAdmin(admin.ModelAdmin):
-    list_display = ["__unicode__", "typ", "time", "slots", "freie_plaetze"]
+    list_display = ["__unicode__", "typ", "time", "slots", "freie_plaetze", "is_in_kernbereich"]
     actions = ["copy_job", "mass_copy_job"]
     search_fields = ["typ__name", "typ__bereich__name"]
 
@@ -256,13 +256,9 @@ class BereichAdmin(admin.ModelAdmin):
     raw_id_fields = ["coordinator"]
     list_display = ["name", "core", "hidden", "coordinator"]
 
-
-"""
 class BoehnliAdmin(admin.ModelAdmin):
-    list_display = ["__unicode__", "job", "zeit", "loco"]
+    list_display = ["__unicode__", "job", "zeit", "loco", "is_boehnli_done"]
     raw_id_fields = ["job", "loco"]
-"""
-
 
 class LocoAdminForm(forms.ModelForm):
     class Meta:
@@ -307,7 +303,7 @@ class LocoAdmin(admin.ModelAdmin):
 
 admin.site.register(Depot, DepotAdmin)
 admin.site.register(ExtraAboType)
-admin.site.register(Boehnli)
+#admin.site.register(Boehnli)
 admin.site.register(Abo, AboAdmin)
 admin.site.register(Loco, LocoAdmin)
 admin.site.register(Taetigkeitsbereich, BereichAdmin)
@@ -318,6 +314,6 @@ admin.site.register(Anteilschein, AnteilscheinAdmin)
 
 # Not adding this because it can and should be edited from Job, 
 # where integrity constraints are checked
-#admin.site.register(Boehnli, BoehnliAdmin)
+admin.site.register(Boehnli, BoehnliAdmin)
 admin.site.register(JobType)
 admin.site.register(Job, JobAdmin)
