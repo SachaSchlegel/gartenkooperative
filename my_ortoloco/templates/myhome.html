@@ -16,12 +16,14 @@
 <p>
   Auf dieser Seite organisieren wir:
   <ul>
-    <li>Die Arbeitseinsätze: Jede(r) AbonnementIn einer kleinen Gemüse-Tasche verpflichtet sich für 10 Arbeitseinsätze (das sind 10 mal 1/2 Tage à je 4 Stunden)</li>
+    <li>Die Arbeitseinsätze: Jede(r) AbonnementIn einer kleinen Gemüse-Tasche steuert 10 Arbeitseinsätze (das sind 10 mal 1/2 Tage à je 4 Stunden) bei. Jeder ausgeschriebene "Arbeitseinsatz" ist ein 4 Stunden Einsatz.</li>
     <li>Die Abos und die Depots.</li>
+    <li>Für die Gartenfachkraft ist es ideal, wenn am Montag Abend die Einsätze für die kommende Woche ausgebucht sind. Spontan Anmelden ist aber natürlich auch möglich. 
   </ul>
+  Auf ein gutes Gartenjahr!
 </p>
 
-    <h3>Aktuelle Arbeitseinsätze</h3>
+    <h3>Die nächsten möglichen Arbeitseinsätze</h3>
     <table class="jobs">
         {% for job in jobs %}
             <tr class="{% if job.status == "erbse_voll.png" %}full{% endif %}">
@@ -32,7 +34,7 @@
         {% endfor %}
     </table>
     <br/>
-    <a href="/my/einsaetze">Hier alle Arbeitseinsätze anzeigen</a>
+    Wenn du deine Garteneinsätze frühzeitig planen musst, kommst du hier zu <a href="/my/einsaetze">allen zukünftigen Arbeitseinsätze</a>.
     <br/><br/>
     <h4>Zu den Kalendern der einzelnen Tätigkeitsbereiche</h4>
     <table class="teams">

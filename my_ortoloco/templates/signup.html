@@ -3,7 +3,9 @@
 {% block allcontent %}
     <div class="col-md-2"></div>
     <div class="col-md-8">
-        <h3>Werde aktiv (AbonnementInnen und freiwillige HelferInnen) der Gartenkooperative Region Liechtenstein-Werdenberg - Personalien</h3>
+        <h3>Werde aktiv in der Gartenkooperative Region Liechtenstein-Werdenberg</h3>
+	Registration für all AbonnementInnen und freiwilligen HelferInnen. Sobald du dich registriert hast, kannst du dich hier für deine Arbeitseinsätze eintragen.
+        <br/>
         <br/>
 
         <form action="" method="post" class="form-horizontal">
@@ -106,14 +108,16 @@
                         <label>
                             {{ locoform.agb }}
                             <input type="checkbox" name="agb" id="agb" {% if agbchecked %}checked="checked"{% endif %}>
-                            Ich habe <a target="_blank" href="https://www.dropbox.com/s/5zwicvr0b2w1qir/150226StatutenGartenkooperative.pdf?dl=0">die Statuten</a> und <a target="_blank" href="https://www.dropbox.com/s/j7wd2ylx54jn965/150226BetriebsreglementGartenkooperative.pdf?dl=0">das Betriebsreglement</a> gelesen und erkläre meinen Willen, der "Genossenschaft Gartenkooperative Region Liechtenstein-Werdenberg"
-                            beizutreten. Hiermit beantrage ich meine Aufnahme.
+                            Ich habe <a target="_blank" href="https://www.dropbox.com/s/5zwicvr0b2w1qir/150226StatutenGartenkooperative.pdf?dl=0">die Statuten</a> und <a target="_blank" href="https://www.dropbox.com/s/j7wd2ylx54jn965/150226BetriebsreglementGartenkooperative.pdf?dl=0">das Betriebsreglement</a> gelesen und erkläre meinen Willen, bei der "Genossenschaft Gartenkooperative Region Liechtenstein-Werdenberg"
+                            mitzumachen.
 
                             {% if agberror %}
                                 <div class="alert alert-danger">Statuten müssen angenommen werden</div>
                             {% endif %}
                         </label>
                     </div>
+		    <br />
+		    Dein Passwort wird dir an deine Email geschickt.
                 </div>
             </div>
             {% if userexists %}

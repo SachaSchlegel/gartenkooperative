@@ -55,18 +55,20 @@
             <li class="{{ menu.participation }}">
               <a href="/my/einsaetze">Einsätze</a>
             </li>
-            <li class="{{ menu.contact }}">
-              <a href="/my/kontakt">Kontakt</a>
-            </li>
             <li class="{{ menu.personalInfo }}">
               <a href="/my/profil">Personalien</a>
             </li>
             <li class="{{ menu.logout }}">
               <a href="/logout"><strong>Abmelden</strong></a>
             </li>
+            <li class="{{ menu.contact }}">
+              <a href="/my/kontakt">Fragen?</a>
+            </li>
+	    <!--
 	    <li>
 	      <a href="mailto:it@gartenkooperative.li?subject=Informatik Frage/Kommentar">Fragen? Emaile uns</a>
 	    </li>
+	    -->
 	    {% if depot_admin|length > 0 %}
 	    <hr>
 	    <h5>Für Depot Admins</h5>

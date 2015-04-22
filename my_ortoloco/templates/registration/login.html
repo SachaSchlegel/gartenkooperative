@@ -37,8 +37,19 @@
                 <div class="form-group">
                     <label class="control-label col-sm-4" for="username">Neuen Benutzer anlegen</label>
                     <div class="controls col-sm-8">
-			<a href="/my/anmelden">Neuen Benutzer anlegen</a>
+			<a href="/my/anmelden">Neuen Benutzer registrieren</a>
+			<br />
+			<h3>Beispiel Registration</h3>
+			<strong>Ein Haushalt</strong>: Ein Haushalt beteiligt sich mit einem kleinen Abo. Im Haushalt leben 2 oder mehr Personen die Arbeitseinsätze leisten wollen. <br/>
+			<ul>
+			  <li><strong>Variante 1</strong>: Die erste Person registriert das Konto in ihrem Namen und teilt den Login (Benutzername und Passwort) mit den anderen Personen im Haushalt. Der Benutzer sieht wieviel der 10 Arbeitseinsätze bereits geleistet wurden. Man sieht aber nicht wer wieviele Arbeitseinsätze geleistet hat.
+			  </li>
+			  <li><strong>Variante 2</strong>: Die erste Person (z.B. Stephan) registriert das Konto und fügt auf der übernächsten Registration Seite ein(e) <strong>MitabonnentIn</strong> (z.B. Nadine) mit eigener Email Adresse hinzu. Der/die MitabonnentIn bekommt einen eigenen Zugang (Benutzername und Passwort). So können sich alle beteiligten Personen mit ihrem eigenen Login anmelden und seine/ihre Arbeitseinsätze eintragen. <br/>Die 10 Arbeitseinsätze für das kleine Abo wird auf Stephan und Nadine à je 5 aufgeteilt. Das ist leider nicht ideal da die Personen vielleicht die Arbeitseinsätze anders aufteilen wollen und Stephan sieht nur von seinen 5 Arbeitseinsätze wieviele er schon geleistet hat aber hat keine Übersicht über die anderen Arbeitseinsätze der Mitabonnentinnen.</li>
+			</ul>
+			<strong>Zwei Haushalte teilen sich ein Abo</strong>: Zwei Haushalte teilen sich ein grosses Abo. Es bestehen die selben 2 Variante von "Ein Haushalt".<br/>
+			<strong>Welche Variante wählen?</strong> Sacha S. empfiehlt die einfache Variante 1 zu wählen.
                     </div>
+		    
                 </div>
                 <input type="hidden" name="next" value="{{ next|escape }}"/>
             </form>
