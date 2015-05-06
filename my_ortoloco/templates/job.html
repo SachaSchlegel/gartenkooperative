@@ -37,7 +37,7 @@
     <br/>
     <div class="row">
         <div class="col-md-3">Beschreibung:</div>
-        <div class="col-md-5">{{ job.typ.description }}</div>
+        <div class="col-md-5">{{ job.typ.description | safe | escape }}</div>
     </div>
     <br/>
     <div class="row">
