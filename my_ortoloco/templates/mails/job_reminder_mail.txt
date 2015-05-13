@@ -6,7 +6,7 @@ Am {{ job.time |date:"d.m.Y H:i" }}-{{ job.end_time|date:"H:i" }} findet dein Ga
 
 Details:
 
-Job:             {{ job.typ.description | striptags  }}
+Job:             {{ job.typ.description }}
 Zeit:            {{ job.time |date:"d.m.Y H:i" }}-{{ job.end_time|date:"H:i" }}
 MithelferInnen:  {{ participants }}
 Ort:             {{ job.typ.location }}
