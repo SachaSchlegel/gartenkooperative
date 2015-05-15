@@ -99,6 +99,8 @@ def my_job(request, job_id):
     loco = request.user.loco
     job = get_object_or_404(Job, id=int(job_id))
 
+    send_email_allowed = request.user.is_staff
+
     if request.method == 'POST':
         num = request.POST.get("jobs")
         # adding participants
@@ -111,8 +113,10 @@ def my_job(request, job_id):
     number_of_participants = len(boehnlis)
 
     participants_new_dict = defaultdict(dict)
+    recipients_emails = []
     for boehnli in boehnlis:
         if boehnli.loco is not None:
+            recipients_emails.append(boehnli.loco.email)
             loco_info = participants_new_dict[boehnli.loco.first_name + ' ' + boehnli.loco.last_name]
             current_count = loco_info.get("count", 0)
             current_msg = loco_info.get("msg", [])
@@ -156,6 +160,11 @@ def my_job(request, job_id):
     renderdict = get_menu_dict(request)
     jobendtime = job.end_time()
     renderdict.update({
+        'recipients_type': "Teilnehmer dieses Jobs",
+        'recipients_emails':  ', '.join(set(recipients_emails)),
+        'recipients_count': len(set(recipients_emails)),
+        'send_email_allowed': send_email_allowed,
+
         'number_of_participants': number_of_participants,
         'participants_summary': participants_summary,
         'participants_summary': participants_summary,
@@ -904,9 +913,24 @@ def my_mails(request):
 def my_mails_depot(request):
     return my_mails_intern(request)
 
+@staff_member_required
+def my_mails_job(request):
+    renderdict = get_menu_dict(request)
+    renderdict.update({
+        'subject_email': request.POST.get("email_subject"),
+        'sender_email': request.user.email,
+        'recipient_type': request.POST.get("recipient_type"),
+        'recipient_type_detail': request.POST.get("recipient_type_detail"),
+        'recipients': request.POST.get("recipients"),
+        'recipients_count': int(request.POST.get("recipients_count") or 0),
+    })
+    return render(request, 'mail_sender.html', renderdict)
+
 def my_mails_intern(request):
     renderdict = get_menu_dict(request)
     renderdict.update({
+        'subject_email': "Betreff",
+        'sender_email': request.user.email,
         'recipient_type': request.POST.get("recipient_type"),
         'recipient_type_detail': request.POST.get("recipient_type_detail"),
         'recipients': request.POST.get("recipients"),

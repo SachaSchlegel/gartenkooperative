@@ -1,6 +1,16 @@
 {% extends "mybase.html" %}
 
 {% block content %}
+{% if recipients_count > 0 and send_email_allowed %}
+<form id="email-sender" action="/my/mails_job" method="POST">
+  {% csrf_token %}
+  <input type="hidden" name="recipient_type" id="recipient_type" value="{{ recipients_type }}"/>
+  <input type="hidden" name="recipients" id="recipients" value="{{ recipients_emails }}"/>
+  <input type="hidden" name="recipients_count" id="recipients_count" value="{{ recipients_count }}"/>
+  <input type="hidden" name="email_subject" name="email_subject"   value="Betreffend {{ job.typ.name }} am {{ job.time |date:"l, d.m.Y, H:i" }} - {{ job.end_time|date:"H:i" }}"/>
+  <button type="submit" class="btn btn-success" id="send-email">Email senden an alle Teilnehmer dieses Jobs.</button>
+</form>
+{% endif %}
     <h3>{{ job.typ.name }}</h3>
     <div class="row">
         <div class="col-md-3">Zeitpunkt:</div>
@@ -144,5 +154,7 @@ Merci vielmals,
 {% endblock %}
 
 {% block scripts %}
+<!--
     <script type="text/javascript" src="/static/external/require.min.js" data-main="/static/js/initMyJobLocoMessaging.js"></script>
+-->
 {% endblock %}
