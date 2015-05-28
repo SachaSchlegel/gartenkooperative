@@ -159,6 +159,7 @@ def my_job(request, job_id):
 
     renderdict = get_menu_dict(request)
     jobendtime = job.end_time()
+
     renderdict.update({
         'recipients_type': "Teilnehmer dieses Jobs",
         'recipients_emails':  ', '.join(set(recipients_emails)),
@@ -728,10 +729,9 @@ def my_contact(request):
     Kontaktformular
     """
     loco = request.user.loco
-
     if request.method == "POST":
         # send mail to bg
-        send_contact_form(request.POST.get("subject"), request.POST.get("message"), loco, request.POST.get("copy"))
+        send_contact_form(request.POST.get("subject"), request.POST.get("message"), request.POST.get("recipient"), loco, request.POST.get("copy"))
         # set announce and redirect to home
         renderdict = { 'sent': "1+" }
         return render(request, 'mail_sender_result.html', renderdict)
@@ -916,9 +916,11 @@ def my_mails_depot(request):
 @staff_member_required
 def my_mails_job(request):
     renderdict = get_menu_dict(request)
+    sender_email = request.user.email
+
     renderdict.update({
         'subject_email': request.POST.get("email_subject"),
-        'sender_email': request.user.email,
+        'sender_email': sender_email,
         'recipient_type': request.POST.get("recipient_type"),
         'recipient_type_detail': request.POST.get("recipient_type_detail"),
         'recipients': request.POST.get("recipients"),

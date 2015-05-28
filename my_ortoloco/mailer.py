@@ -25,6 +25,7 @@ def send_mail(subject, message, from_email, to_emails):
 
     if len(okmails) > 0:
         for amail in okmails:
+            # Add BBC to kontakt@gartenkooperative.li
             mail.send_mail(subject, message, from_email, [amail], fail_silently=False)
             print "Mail sent to " + ", ".join(okmails) + (", on whitelist" if settings.DEBUG else "")
 
@@ -58,8 +59,8 @@ def send_new_loco_in_taetigkeitsbereich_to_bg(area, loco):
               'Soeben hat sich ' + loco.first_name + " " + loco.last_name + ' in den Taetigkeitsbereich ' + area.name + ' eingetragen', 'kontakt@gartenkooperative.li', [area.coordinator.email])
 
 
-def send_contact_form(subject, message, loco, copy_to_loco):
-    send_mail('Anfrage per meine.gartenkooperative.li: ' + subject, message, loco.email, ['kontakt@gartenkooperative.li'])
+def send_contact_form(subject, message, recipient, loco, copy_to_loco):
+    send_mail('Anfrage per meine.gartenkooperative.li: ' + subject, message, loco.email, [recipient])
     if copy_to_loco:
         send_mail('Anfrage per meine.gartenkooperative.li: ' + subject, message, loco.email, [loco.email])
 

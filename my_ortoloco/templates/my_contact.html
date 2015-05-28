@@ -11,7 +11,7 @@ Vielleicht können wir hier schon helfen:<br/>
   </li>
   <li>
     <strong>Ich bin an einem eingetragen Arbeitseinsatz verhindert und kann mich nicht austragen</strong><br/>
-    Du kannst dich nicht selber austragen. Schicke unten eine Nachricht an den/die Verantwortliche Person
+    Du kannst dich nicht selber austragen. Schicke unten eine Nachricht an die Gartenfachkfraft
   </li>
   <li>
     <strong>Was ist mit meinen bereits geleisteten Einsätzen?</strong><br/>Die bereits geleisteten Einsätze werden in den nächsten Tagen nachgetragen.
@@ -28,8 +28,10 @@ Vielleicht können wir hier schon helfen:<br/>
 </ul>
 Ist deine Frage noch ungeklärt? Dann kontaktiere uns direkt.
 <h3>Kontaktformular</h3>
-<p>Kontaktiere die Betriebsgruppe.</p>
-<br/>
+<ul>
+  <li>Geht es um ein <strong>Arbeitseinsatz</strong>? Dann wähle <strong>"Gartenfachkraft"</strong> als Empfänger aus.</li>
+  <li>Um alles andere wähle <strong>"Betriebsgruppe"</strong> als Empfänger aus.</li>
+</ul>
 <form action="/my/kontakt" method="POST" class="form-horizontal">
   {% csrf_token %}
   <div class="form-group">
@@ -40,10 +42,16 @@ Ist deine Frage noch ungeklärt? Dann kontaktiere uns direkt.
   </div>
   <div class="form-group">
     <label class="control-label col-sm-4">Empfänger</label>
+    <br />
+    <select name="recipient" id="recipient">
+        <option value="gartenfachkraft@gartenkooperative.li" id="gartenfachkraft">Gartenfachkraft betr. Arbeitseinsatz</option>
+        <option value="kontakt@gartenkooperative.li" id="betriebsgruppe">Betriebsgruppe für alles andere</option>
+    </select>
+<!--
     <div class="controls col-sm-8">
       kontakt@gartenkooperative.li
     </div>
-  </div>
+-->  </div>
   <div class="form-group">
     <label class="control-label col-sm-4" for="subject">Betreff</label>
     <div class="controls col-sm-8">
