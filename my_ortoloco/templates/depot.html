@@ -16,7 +16,10 @@
             <dt>&nbsp;</dt>
             <dd>&nbsp;</dd>
             <dt>Kontaktperson</dt>
-            <dd>{{ depot.contact.first_name }} {{ depot.contact.last_name }}, <a href="mailto:{{ depot.contact.email }}">{{ depot.contact.email }}</a></dd>
+            <dd><strong>Name:</strong> {{ depot.contact.first_name }} {{ depot.contact.last_name }}</dd>
+	    <dd><strong>Email:</strong> <a href="mailto:{{ depot.contact.email }}">{{ depot.contact.email }}</a></dd>
+            <dd><strong>Telefon (Festnetz):</strong>{{ depot.contact.phone }}</dd>
+            <dd><strong>Telefon (Mobile):</strong>{{ depot.contact.mobile_phone }}</dd>
             <dt>&nbsp;</dt>
             <dd>&nbsp;</dd>
             <dt>Ort des Depots</dt>
