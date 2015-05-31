@@ -1077,8 +1077,9 @@ def alldepots_list(request, name):
             'small_abo': 0,
             'big_abo': 0,
             'entities': 0,
-            'egg4': 0,
             'egg6': 0,
+            'egg12': 0,
+            'egg18': 0,
             'cheesefull': 0,
             'cheesehalf': 0,
             'cheesequarter': 0,
@@ -1101,8 +1102,9 @@ def alldepots_list(request, name):
             'small_abo': 0,
             'big_abo': 0,
             'entities': 0,
-            'egg4': 0,
             'egg6': 0,
+            'egg12': 0,
+            'egg18': 0,
             'cheesefull': 0,
             'cheesehalf': 0,
             'cheesequarter': 0,
@@ -1117,8 +1119,9 @@ def alldepots_list(request, name):
         row['small_abo'] += depot.small_abos()
         row['big_abo'] += depot.big_abos()
         row['entities'] += 2 * depot.big_abos() + depot.small_abos()
-        row['egg4'] += depot.vier_eier()
         row['egg6'] += depot.sechs_eier()
+        row['egg12'] += depot.zwoelf_eier()
+        row['egg18'] += depot.achtzehn_eier()
         row['cheesefull'] += depot.kaese_ganz()
         row['cheesehalf'] += depot.kaese_halb()
         row['cheesequarter'] += depot.kaese_viertel()
@@ -1127,8 +1130,9 @@ def alldepots_list(request, name):
         all['small_abo'] += depot.small_abos()
         all['big_abo'] += depot.big_abos()
         all['entities'] += 2 * depot.big_abos() + depot.small_abos()
-        all['egg4'] += depot.vier_eier()
         all['egg6'] += depot.sechs_eier()
+        all['egg12'] += depot.zwoelf_eier()
+        all['egg18'] += depot.achtzehn_eier()
         all['cheesefull'] += depot.kaese_ganz()
         all['cheesehalf'] += depot.kaese_halb()
         all['cheesequarter'] += depot.kaese_viertel()

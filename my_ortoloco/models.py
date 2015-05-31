@@ -47,16 +47,23 @@ class Depot(models.Model):
     def big_abos(self):
         return len(self.active_abos().filter(Q(size=2) | Q(size=3) | Q(size=4))) + len(self.active_abos().filter(size=4))
 
-    def vier_eier(self):
-        eier = 0
-        for abo in self.active_abos().all():
-            eier += len(abo.extra_abos.all().filter(description="Eier 4er Pack"))
-        return eier
-
+    # Eier Zusatz Abos
     def sechs_eier(self):
         eier = 0
         for abo in self.active_abos().all():
-            eier += len(abo.extra_abos.all().filter(description="Eier 6er Pack"))
+            eier += len(abo.extra_abos.all().filter(description__startswith='6 Eier'))
+        return eier
+
+    def zwoelf_eier(self):
+        eier = 0
+        for abo in self.active_abos().all():
+            eier += len(abo.extra_abos.all().filter(description__startswith='12 Eier'))
+        return eier
+
+    def achtzehn_eier(self):
+        eier = 0
+        for abo in self.active_abos().all():
+            eier += len(abo.extra_abos.all().filter(description__startswith='18 Eier'))
         return eier
 
     def kaese_ganz(self):
@@ -194,11 +201,14 @@ class Abo(models.Model):
     def future_size_name(self):
         return Abo.get_size_name(size=self.future_size)
 
-    def vier_eier(self):
-        return len(self.extra_abos.all().filter(description="Eier 4er Pack")) > 0
-
     def sechs_eier(self):
-        return len(self.extra_abos.all().filter(description="Eier 6er Pack")) > 0
+        return len(self.extra_abos.all().filter(description__startswith='6 Eier')) > 0
+
+    def zwoelf_eier(self):
+        return len(self.extra_abos.all().filter(description__startswith='12 Eier')) > 0
+
+    def achtzehn_eier(self):
+        return len(self.extra_abos.all().filter(description__startswith='18 Eier')) > 0
 
     def ganze_kaese(self):
         return len(self.extra_abos.all().filter(description="Käse ganz")) > 0
@@ -275,9 +285,13 @@ class Loco(models.Model):
         return u"%s %s" % (self.first_name, self.last_name)
 
     def get_phone(self):
+        numbers = []
         if self.mobile_phone != "":
-            return self.mobile_phone
-        return self.phone
+            numbers.append("Handy: " +  self.mobile_phone)
+        if self.phone != "":
+            numbers.append("Festnetz: " + self.phone)
+
+        return ", ".join(numbers)
 
 class Anteilschein(models.Model):
     loco = models.ForeignKey(Loco, null=True, blank=True, on_delete=models.SET_NULL)
