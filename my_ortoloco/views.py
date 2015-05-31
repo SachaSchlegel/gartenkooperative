@@ -73,6 +73,11 @@ def my_home(request):
     """
     Overview on myortoloco
     """
+    
+    infos = ""
+    if StaticContent.objects.all().filter(name='home_infos').__len__() > 0:
+        infos = StaticContent.objects.all().filter(name='home_infos')[0].content + "</br>"
+
     announcement = ""
     if StaticContent.objects.all().filter(name='my.ortoloco').__len__() > 0:
         announcement = u"<h3>Ankündigungen:</h3>" + StaticContent.objects.all().filter(name='my.ortoloco')[0].content + "</br>"
@@ -85,7 +90,8 @@ def my_home(request):
         'jobs': sorted(next_jobs.union(pinned_jobs).union(next_aktionstage), key=lambda job: job.time),
         'teams': Taetigkeitsbereich.objects.filter(hidden=False),
         'no_abo': request.user.loco.abo is None,
-        'announcement': announcement
+        'announcement': announcement,
+        'infos': infos
     })
 
     return render(request, "myhome.html", renderdict)

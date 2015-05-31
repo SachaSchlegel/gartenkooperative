@@ -7,47 +7,42 @@
 <div class="alert alert-warning">Du hast kein Abo</div>
 {% endif %}
 
-<!-- Announcements können in views.py erstellt werden -->
+<!-- Announcements können als Statischer Inhalt 'my.ortoloco' erstellt werden -->
 {% autoescape off %}
 {{ announcement }}
 {% endautoescape %}
 
 <h2>Willkommen!</h2>
-<p>
-  <ul>
-    <li><strong>Erste Lieferung!</strong> Mittwoch, 10. Juni 2015 => richtiges Depot und Zusatzabos auswählen!<br/>
-      Also Depot anpassen in "Abo" -> "Abo ändern" -> "Depot ändern".</li>
-    <li><strong>Zusatz-Abos:</strong> Es gibt 6, 12 oder 18 Eier. "Abo" -> "Abo ändern" -> "Zusatz-Abo ändern" -> und dann auswählen und speichern.</li>
-    <li><strong>Wichtig:</strong> Für die Gartenfachkraft ist es ideal, wenn am Sonntag Abend die Einsätze für die kommende Woche ausgebucht sind. Spontane Anmeldungen sind aber natürlich sehr willkommen!</li>
-    <li>Gängige Fragen und Antwortern: <a href="/my/kontakt">hier</a></li>
-    <li>Die Arbeitseinsätze: Jede(r) AbonnementIn einer kleinen Gemüse-Tasche steuert 10 Arbeitseinsätze (das sind 10 mal 1/2 Tage à je 4 Stunden) bei. Jeder ausgeschriebene "Arbeitseinsatz" ist ein 4 Stunden Einsatz.</li>
-  </ul>
-  Auf ein gutes Gartenjahr!
-</p>
 
-    <h3>Die nächsten möglichen Arbeitseinsätze</h3>
-    <table class="jobs">
-        {% for job in jobs %}
+<!-- Static Content: home_infos -->
+{% autoescape off %}
+{{ infos }}
+{% endautoescape %}
+
+
+<h3>Die nächsten möglichen Arbeitseinsätze</h3>
+<table class="jobs">
+  {% for job in jobs %}
             <tr class="{% if job.status == "erbse_voll.png" %}full{% endif %}">
-                <td class="date">{{ job.wochentag }}, {{ job.time |date:"d.m @ H:i" }} </td>
-                <td> <a href="/my/jobs/{{ job.id }}">{{ job.typ.name }}</a></td>
-                <td class="status"><img alt="Job-Status: {{ job.get_status_bohne }}" src="/static/img/{{ job.get_status_bohne }}"/></td>
+              <td class="date">{{ job.wochentag }}, {{ job.time |date:"d.m @ H:i" }} </td>
+              <td> <a href="/my/jobs/{{ job.id }}">{{ job.typ.name }}</a></td>
+              <td class="status"><img alt="Job-Status: {{ job.get_status_bohne }}" src="/static/img/{{ job.get_status_bohne }}"/></td>
             </tr>
-        {% endfor %}
-    </table>
-    <br/>
-    Wenn du deine Garteneinsätze frühzeitig planen musst, kommst du hier zu <a href="/my/einsaetze">allen zukünftigen Arbeitseinsätze</a>.
-    <br/><br/>
-    <h4>Zu den Kalendern der einzelnen Tätigkeitsbereiche</h4>
-    <table class="teams">
-        {% for team in teams %}
-            <tr>
-                <td><a href="/my/teams/{{ team.id }}">{{ team.name }}</a></td>
-            </tr>
-        {% endfor %}
-    </table>
-    <br />
-    <br />
-    <br />
+            {% endfor %}
+</table>
+<br/>
+Wenn du deine Garteneinsätze frühzeitig planen musst, kommst du hier zu <a href="/my/einsaetze">allen zukünftigen Arbeitseinsätze</a>.
+<br/><br/>
+<h4>Zu den Kalendern der einzelnen Tätigkeitsbereiche</h4>
+<table class="teams">
+  {% for team in teams %}
+  <tr>
+    <td><a href="/my/teams/{{ team.id }}">{{ team.name }}</a></td>
+  </tr>
+  {% endfor %}
+</table>
+<br />
+<br />
+<br />
 
 {% endblock %}
