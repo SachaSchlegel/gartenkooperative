@@ -34,7 +34,7 @@
             <tbody>
             {% for abo in abos %}
                 <tr>
-                    <td>{{ abo.abo.primary_loco.first_name }} {{ abo.abo.primary_loco.last_name }}</td>
+                    <td><a target="_new" href="/impersonate/{{ abo.abo.primary_loco.user.id }}">{{ abo.abo.primary_loco.first_name }} {{ abo.abo.primary_loco.last_name }}</a></td>
                     <td>{{ abo.abo.bezieher }}</td>
                     <td>{{ abo.abo.size_name }}</td>
                     <td>{{ abo.abo.extras_name }}</td>
