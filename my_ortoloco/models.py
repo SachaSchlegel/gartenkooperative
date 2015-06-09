@@ -51,19 +51,19 @@ class Depot(models.Model):
     def sechs_eier(self):
         eier = 0
         for abo in self.active_abos().all():
-            eier += len(abo.extra_abos.all().filter(description__startswith='6 Eier'))
+            eier += len(abo.extra_abos.all().filter(name__startswith='6 Eier'))
         return eier
 
     def zwoelf_eier(self):
         eier = 0
         for abo in self.active_abos().all():
-            eier += len(abo.extra_abos.all().filter(description__startswith='12 Eier'))
+            eier += len(abo.extra_abos.all().filter(name__startswith='12 Eier'))
         return eier
 
     def achtzehn_eier(self):
         eier = 0
         for abo in self.active_abos().all():
-            eier += len(abo.extra_abos.all().filter(description__startswith='18 Eier'))
+            eier += len(abo.extra_abos.all().filter(name__startswith='18 Eier'))
         return eier
 
     def kaese_ganz(self):
@@ -202,13 +202,13 @@ class Abo(models.Model):
         return Abo.get_size_name(size=self.future_size)
 
     def sechs_eier(self):
-        return len(self.extra_abos.all().filter(description__startswith='6 Eier')) > 0
+        return len(self.extra_abos.all().filter(name__startswith='6 Eier')) > 0
 
     def zwoelf_eier(self):
-        return len(self.extra_abos.all().filter(description__startswith='12 Eier')) > 0
+        return len(self.extra_abos.all().filter(name__startswith='12 Eier')) > 0
 
     def achtzehn_eier(self):
-        return len(self.extra_abos.all().filter(description__startswith='18 Eier')) > 0
+        return len(self.extra_abos.all().filter(name__startswith='18 Eier')) > 0
 
     def ganze_kaese(self):
         return len(self.extra_abos.all().filter(description="Käse ganz")) > 0
