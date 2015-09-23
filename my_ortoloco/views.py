@@ -735,10 +735,11 @@ def my_contact(request):
     Kontaktformular
     """
     fragen = ""
+    loco = request.user.loco
+        
     if StaticContent.objects.all().filter(name='kontakt_fragen').__len__() > 0:
         fragen = StaticContent.objects.all().filter(name='kontakt_fragen')[0].content + "</br>"
 
-        loco = request.user.loco
     if request.method == "POST":
         # send mail to bg
         send_contact_form(request.POST.get("subject"), request.POST.get("message"), request.POST.get("recipient"), loco, request.POST.get("copy"))
