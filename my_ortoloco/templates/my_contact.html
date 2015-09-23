@@ -1,6 +1,12 @@
 {% extends "mybase.html" %}
 
 {% block content %}
+
+<!-- Static Content: home_infos -->
+{% autoescape off %}
+{{ fragen }}
+{% endautoescape %}
+
 <h3>Fragen?</h3>
 Vielleicht können wir hier schon helfen:<br/>
 <ul>
