@@ -380,7 +380,7 @@ class Job(models.Model):
             boehnlis = Boehnli.objects.filter(job_id=self.id)
             result = helpers.get_status_bean(boehnlis.count() * 100 / self.slots)
         except ZeroDivisionError as error:
-            print "ZeroDivisionError({0}): {1}".format(error.errno, error.strerror)
+            print "ZeroDivisionError in get_status_bean", sys.exc_info()[0]
             return result
 
         print "get_status-bohne ohne exception"
