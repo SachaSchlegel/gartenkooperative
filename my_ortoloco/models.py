@@ -11,7 +11,7 @@ from django.db.models import Q
 
 import model_audit
 import helpers
-
+import sys
 
 class Depot(models.Model):
     """
@@ -379,7 +379,7 @@ class Job(models.Model):
         try:
             boehnlis = Boehnli.objects.filter(job_id=self.id)
             result = helpers.get_status_bean(boehnlis.count() * 100 / self.slots)
-        except ZeroDivisionError as error:
+        except ZeroDivisionError:
             print "ZeroDivisionError in get_status_bean", sys.exc_info()[0]
             return result
 
