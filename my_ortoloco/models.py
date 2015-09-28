@@ -374,8 +374,17 @@ class Job(models.Model):
         return self.boehnli_set.count()
 
     def get_status_bohne(self):
-        boehnlis = Boehnli.objects.filter(job_id=self.id)
-        return helpers.get_status_bean(boehnlis.count() * 100 / self.slots)
+        print "get_status_bohne"
+        result = 0
+        try:
+            boehnlis = Boehnli.objects.filter(job_id=self.id)
+            result = helpers.get_status_bean(boehnlis.count() * 100 / self.slots)
+        except ZeroDivisionError as error:
+            print "ZeroDivisionError({0}): {1}".format(error.errno, error.strerror)
+            return result
+
+        print "get_status-bohne ohne exception"
+        return result
 
     def is_in_kernbereich(self):
         return self.typ.bereich.core
