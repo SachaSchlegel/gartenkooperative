@@ -72,6 +72,50 @@
 
 {% for i in "xx" %}
 <div>
+  <h2 style="font-size: 16px;">Übersicht aller {{ depots.count }} Depots der Gartenkooperative</h2>
+    <table cellpadding="5" cellspacing="0" style="width:100%; margin-bottom:5px;" class="bottom-border">
+      <tr>
+        <td style="width:200px"></td>
+        <th colspan="2" class="top-border left-border right-border">ABO</th>
+        <th colspan="3" class="top-border right-border">EIER</th>
+      </tr>
+      <tr>
+        <td class="small left-border">Depot Name</td>
+        <td class="small left-border bottom-border">klein</td>
+        <td class="small bottom-border right-border">gross</td>
+        <td class="small bottom-border">6 Eier</td>
+        <td class="small bottom-border">12 Eier</td>
+        <td class="small bottom-border right-border">18 Eier</td>
+      </tr>
+
+      {% for depot in depots %}
+      <tr>
+        <td class="small left-border">{{ depot.name }}</td>
+	<td class="small left-border" style="width:40px; text-align:right;">{{ depot.small_abos }}</td>
+	<td style="width:40px; text-align:right;">{{ depot.big_abos }}</td>
+	<td class="small left-border" style="width:40px; text-align:right;">{{ depot.sechs_eier }}</td>
+	<td style="width:40px; text-align:right;">{{ depot.zwoelf_eier }}</td>
+	<td class="small right-border" style="width:40px; text-align:right;">{{ depot.achtzehn_eier }}</td>
+      </tr>
+      {% endfor %}
+      <tr>
+	<br />
+      </tr>
+      <tr>
+	<td class="small left-border">TOTAL Mittwoch</td>
+        <td class="small left-border"  style="text-align:right">{{ overview.Mittwoch.small_abo }}</td>
+        <td style="text-align:right">{{ overview.Mittwoch.big_abo }}</td>
+        <td class="small left-border"  style="text-align:right">{{ overview.Mittwoch.egg6 }}</td>
+        <td style="text-align:right">{{ overview.Mittwoch.egg12 }}</td>
+        <td class="small right-border" style="text-align:right">{{ overview.Mittwoch.egg18 }}</td>
+      </tr>
+    </table>
+    <div class="page-break"></div>
+</div>
+{% endfor %}
+
+{% for i in "" %}
+<div>
     <table cellpadding="5" cellspacing="0" style="width:100%; margin-bottom:5px;" class="bottom-border">
         <tr>
             <td style="width:200px"></td>
@@ -149,6 +193,7 @@
     <div class="page-break"></div>
 </div>
 {% endfor %}
+
 {% for depot in depots %}
 <!-- Wir haben nur Mittwoch
 <h2 style="font-size: 16px;">{{ depot.wochentag }} | Depot Name: {{ depot.name }}</h2>
@@ -249,5 +294,6 @@
 Depotbetreuung: {{ depot.contact.first_name }} {{ depot.contact.last_name }}, {{ depot.contact.get_phone }}, {{ depot.contact.email }}
 <div class="page-break"></div>
 {% endfor %}
+
 </body>
 </html>
