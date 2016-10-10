@@ -266,9 +266,7 @@ class Loco(models.Model):
         """
         if created:
             username = helpers.make_username(instance.first_name, instance.last_name, instance.email)
-            user = User(username=username)
-            user.save()
-            user = User.objects.get(username=username)
+            user = User.objects.get_or_create(username=username)[0]
             instance.user = user
             instance.save()
 

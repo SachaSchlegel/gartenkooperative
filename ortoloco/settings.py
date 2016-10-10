@@ -31,7 +31,7 @@ AUTHENTICATION_BACKENDS = (
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ['.ativ.at', '.gartenkooperative.li']
+ALLOWED_HOSTS = ['.gartenkooperative.li']
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -124,7 +124,7 @@ TINYMCE_DEFAULT_CONFIG = {
 }
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'd3w=vyfqpqmcj#&ge1d0$ch#ff7$qt#6z)lzqt=9pg8wg%d^%s'
+SECRET_KEY = 'd37$qt#6z)lzqt=9p#&ge1d0$ch#ff7$qtg8wg%d^%sw=vyfqpqmcj'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -163,9 +163,9 @@ TEMPLATE_DIRS = (
 
 INSTALLED_APPS = (
     'my_ortoloco',
-   'static_ortoloco',
-   'photologue',
-   'south',
+    'static_ortoloco',
+    'photologue',
+    'south',
     'django_cron',
     'django.contrib.auth',
     'django.contrib.contenttypes',
