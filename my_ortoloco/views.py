@@ -174,7 +174,6 @@ def my_job(request, job_id):
 
         'number_of_participants': number_of_participants,
         'participants_summary': participants_summary,
-        'participants_summary': participants_summary,
         'job': job,
         'slotrange': slotrange,
         'allowed_additional_participants': allowed_additional_participants,
@@ -678,7 +677,7 @@ def my_createabo(request):
 
                 #user did it all => send confirmation mail
                 send_welcome_mail(loco.email, password, request.META["HTTP_HOST"], loco)
-                send_welcome_mail("kontakt@gartenkooperative.li", "<geheim>", request.META["HTTP_HOST"], loco)
+                send_welcome_mail("info@gartenkooperative.li", "<geheim>", request.META["HTTP_HOST"], loco)
 
                 return redirect("/my/willkommen")
 

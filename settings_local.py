@@ -16,4 +16,3 @@ from credentials import *
 LOGGING = {
 }
 
-

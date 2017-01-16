@@ -10,7 +10,7 @@ Bitte setze dir hier gleich ein neues Passwort:
 {{serverurl}}/my/passwort
 
 Weitere Infos wirst du bald erhalten. Bei Fragen oder Unklarheiten einfach melden:
-kontakt@gartenkooperative.li
+info@gartenkooperative.li
 
 Herzlich grüsst,
 die Gartenkooperativen-Betriebsgruppe
