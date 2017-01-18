@@ -199,6 +199,6 @@ def send_job_reminder(emails, job, participants, server):
     text_content = plaintext.render(d)
     html_content = htmly.render(d)
 
-    msg = EmailMultiAlternatives("Gartenkooperative - Job-Erinnerung", text_content, 'info@gartenkooperative.li', emails)
+    msg = EmailMultiAlternatives("Gartenkooperative - Job-Erinnerung", text_content, 'garten@gartenkooperative.li', emails)
     msg.attach_alternative(html_content, "text/html")
     send_mail_multi(msg)

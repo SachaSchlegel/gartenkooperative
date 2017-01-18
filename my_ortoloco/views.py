@@ -927,7 +927,9 @@ def my_mails_depot(request):
 @staff_member_required
 def my_mails_job(request):
     renderdict = get_menu_dict(request)
-    sender_email = request.user.email
+    
+    #sender_email = request.user.email
+    sender_email = 'garten@gartenkooperative.li'
 
     renderdict.update({
         'subject_email': request.POST.get("email_subject"),
