@@ -862,6 +862,8 @@ def send_email_intern(request):
     if request.POST.get("allsingleemail"):
         emails.add(request.POST.get("singleemail"))
 
+    sender = request.POST.get('senderEmail', 'info@gartenkooperative.li')
+
     index = 1
     attachements = []
     while request.FILES.get("image-" + str(index)) is not None:
@@ -869,7 +871,7 @@ def send_email_intern(request):
         index += 1
 
     if len(emails) > 0:
-        send_filtered_mail(request.POST.get("subject"), request.POST.get("message"), request.POST.get("textMessage"), emails, request.META["HTTP_HOST"], attachements)
+        send_filtered_mail(request.POST.get("subject"), request.POST.get("message"), request.POST.get("textMessage"), emails, request.META["HTTP_HOST"], attachements, sender=sender)
         sent = len(emails)
     renderdict = get_menu_dict(request)
     renderdict.update({

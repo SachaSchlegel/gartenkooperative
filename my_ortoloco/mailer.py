@@ -110,7 +110,7 @@ def send_been_added_to_abo(email, password, name, anteilsscheine, hash, server):
     send_mail_multi(msg)
 
 
-def send_filtered_mail(subject, message, text_message, emails, server, attachments):
+def send_filtered_mail(subject, message, text_message, emails, server, attachments, sender='info@gartenkooperative.li'):
     plaintext = get_template('mails/filtered_mail.txt')
     htmly = get_template('mails/filtered_mail.html')
 
@@ -128,7 +128,7 @@ def send_filtered_mail(subject, message, text_message, emails, server, attachmen
     text_content = plaintext.render(textd)
     html_content = htmly.render(htmld)
 
-    msg = EmailMultiAlternatives(subject, text_content, 'info@gartenkooperative.li', emails)
+    msg = EmailMultiAlternatives(subject, text_content, sender, emails)
     msg.attach_alternative(html_content, "text/html")
     for attachment in attachments:
         msg.attach(attachment.name, attachment.read())
