@@ -862,7 +862,7 @@ def send_email_intern(request):
     if request.POST.get("allsingleemail"):
         emails.add(request.POST.get("singleemail"))
 
-    sender = request.POST.get('senderEmail', 'info@gartenkooperative.li')
+    sender = request.POST.get('senderEmail') or 'info@gartenkooperative.li' 
 
     index = 1
     attachements = []
@@ -944,10 +944,17 @@ def my_mails_job(request):
     return render(request, 'mail_sender.html', renderdict)
 
 def my_mails_intern(request):
+    """
+    Method to send an email from the primary gartenkooperative address.
+    """
     renderdict = get_menu_dict(request)
+
+    #sender_email = request.user.email
+    sender_email = 'info@gartenkooperative.li'
+
     renderdict.update({
-        'subject_email': "Betreff",
-        'sender_email': request.user.email,
+        'subject_email': request.POST.get("email_subject"),
+        'sender_email': sender_email,
         'recipient_type': request.POST.get("recipient_type"),
         'recipient_type_detail': request.POST.get("recipient_type_detail"),
         'recipients': request.POST.get("recipients"),
